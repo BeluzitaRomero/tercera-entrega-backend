@@ -1,0 +1,33 @@
+{
+  "name": "2da-proyecto-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/main.js",
+    "fork": "pm2 start src/main.js --watch",
+    "cluster": "pm2 start src/main.js --name='Server1' -i --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mongodb": "^4.5.0",
+    "mongoose": "^6.3.1",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "winston": "^3.7.2",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
