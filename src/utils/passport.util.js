@@ -5,6 +5,9 @@ const bcrypt = require("bcrypt");
 const DaoUserMongoDB = require("../daos/users/DaoUserMongoDB");
 const userMongo = new DaoUserMongoDB();
 
+const logger = require("../utils/logger.js");
+const mailNewUser = require("../services/mailNotification");
+
 //SIGN up
 passport.use(
   "local-signup",
@@ -15,7 +18,7 @@ passport.use(
       try {
         const userExists = await userMongo.collection.findOne({ username });
         if (userExists) {
-          console.log("El usuario existe");
+          logger.info("El usuario existe");
           return done(null, false);
         }
 
@@ -25,8 +28,11 @@ passport.use(
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           email: req.body.email,
+          age: req.body.age,
+          phoneNumber: req.body.phoneNumber,
         };
         const user = await userMongo.collection.create(newUser);
+        mailNewUser(user);
         return done(null, user);
       } catch (error) {
         console.log(error);

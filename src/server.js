@@ -10,7 +10,7 @@ const session = require("express-session");
 const mongoStore = require("connect-mongo");
 
 const passport = require("./utils/passport.util");
-const LocalStrategy = require("passport-local").Strategy;
+// const LocalStrategy = require("passport-local").Strategy;
 
 //EJS
 app.set("view engine", "ejs");
