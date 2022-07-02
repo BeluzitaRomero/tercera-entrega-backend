@@ -1,10 +1,10 @@
 const express = require("express");
 const passport = require("../utils/passport.util");
 
-const res = require("express/lib/response");
 const authRouter = express.Router();
 
 const auth = require("../middlewares/auth.middleware");
+const logger = require("../utils/logger.js");
 
 //*******************SIGN UP*****************************/
 authRouter.get("/signup", async (req, res) => {
@@ -19,12 +19,12 @@ authRouter.post(
   "/signup",
   passport.authenticate("local-signup", { failureRedirect: "/api/user/fail" }),
   async (req, res) => {
-    console.log(req.user);
+    logger.info(req.user);
     res.redirect("login");
   }
 );
 
-authRouter.get("/fail", () => {
+authRouter.get("/fail", (req, res) => {
   res.send("El usuario ya existe");
 });
 
@@ -32,10 +32,10 @@ authRouter.get("/fail", () => {
 authRouter.get("/login", (req, res) => {
   if (req.isAuthenticated()) {
     const user = req.user;
-    console.log("Usuario logueado");
+    logger.info("Usuario logueado");
     res.redirect("/api/user/home");
   } else {
-    console.log("Usuario no logueado");
+    logger.info("Usuario no logueado");
     res.redirect("/login");
   }
 });
@@ -46,7 +46,7 @@ authRouter.post(
     failureRedirect: "/api/user/failLogin",
   }),
   async (req, res) => {
-    console.log(req.user);
+    logger.info(req.user);
     const user = req.user;
     res.redirect("/api/user/home");
   }
@@ -67,7 +67,7 @@ authRouter.get("/protected", auth, (req, res) => {
 
 //**************************LOG OUT*********************************//
 authRouter.get("/logout", async (req, res) => {
-  console.log("logout");
+  logger.info("logout");
   req.logOut();
   res.redirect("/api/user/login");
 });

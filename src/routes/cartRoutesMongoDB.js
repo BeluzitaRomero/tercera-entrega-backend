@@ -9,7 +9,7 @@ const admin = true;
 //READ
 routerCart.get("/", async (req, res) => {
   const carts = await cartMongoDB.getAll();
-  res.status(200).send(carts);
+  res.status(200).render("cart", { data: carts });
 });
 
 routerCart.get("/:id", async (req, res) => {

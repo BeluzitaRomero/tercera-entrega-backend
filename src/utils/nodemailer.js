@@ -35,5 +35,4 @@ async function sendMailGmail(html) {
   }
 }
 
-//   sendMailGmail();
 module.exports = sendMailGmail;

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("templates/head") %>
+  <body style="background-color: rgb(58, 61, 70)">
+    <header><%- include("templates/nav") %></header>
+    <section style="width: 50%; margin: auto">
+      <h1 style="text-align: center; color: white">Carrito</h1>
+      <section class="d-flex justify-content-center flex-wrap">
+        <% data.forEach(function(cart){ %>
+        <div class="card" style="width: 18rem; margin: 1.5rem">
+          <img src="<%=product.thumbnail%>" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title"><%=cart.title %></h5>
+            <p class="card-text">$<%=cart.price %></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <% })%>
+      </section>
+    </section>
+  </body>
+</html>

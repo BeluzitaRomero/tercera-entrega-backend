@@ -53,6 +53,7 @@ const routerProducts = require("./routes/productRoutesMongoDB.js");
 const routerCartProducts = require("./routes/cartProductsRoutesMongoDB.js");
 // const routerUser = require("./routes/user");
 const authRouter = require("./routes/auth.router");
+const homeRouter = require("./routes/home");
 
 //desafio 14***************************
 const infoRouter = require("./routes/infoRouter.js");
@@ -63,6 +64,7 @@ app.use("/api/cart", routerCart);
 app.use("/api/cart/products", routerCartProducts);
 // app.use("/api/user", routerUser);
 app.use("/api/user", authRouter);
+app.use("/", homeRouter);
 
 //desafio 14***********************
 app.use("/info", infoRouter);
