@@ -53,7 +53,7 @@ app.use(passport.session());
 // const routerCartProducts = require("./routes/cartProductsRoutesMongoDB.js");
 // // const routerUser = require("./routes/user");
 // const authRouter = require("./routes/auth.router");
-const homeRouter = require("./routes/home");
+// const homeRouter = require("./routes/home");
 
 // //desafio 14***************************
 // const infoRouter = require("./routes/infoRouter.js");
@@ -64,10 +64,14 @@ const homeRouter = require("./routes/home");
 // app.use("/api/cart/products", routerCartProducts);
 // // app.use("/api/user", routerUser);
 // app.use("/api/user", authRouter);
-app.use("/", homeRouter);
+// app.use("/", homeRouter);
 
 // //desafio 14***********************
 // app.use("/info", infoRouter);
 // app.use("/api/random", random);
+
+app.get("/", (req, res) => {
+  res.render("home-login");
+});
 
 module.exports = app;
