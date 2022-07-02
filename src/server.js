@@ -47,27 +47,27 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ----Config router PRODUCTOS, CARRIO, CARRITO+PRODUCTOS
-const routerCart = require("./routes/cartRoutesMongoDB.js");
-const routerProducts = require("./routes/productRoutesMongoDB.js");
-const routerCartProducts = require("./routes/cartProductsRoutesMongoDB.js");
-// const routerUser = require("./routes/user");
-const authRouter = require("./routes/auth.router");
+// // ----Config router PRODUCTOS, CARRIO, CARRITO+PRODUCTOS
+// const routerCart = require("./routes/cartRoutesMongoDB.js");
+// const routerProducts = require("./routes/productRoutesMongoDB.js");
+// const routerCartProducts = require("./routes/cartProductsRoutesMongoDB.js");
+// // const routerUser = require("./routes/user");
+// const authRouter = require("./routes/auth.router");
 const homeRouter = require("./routes/home");
 
-//desafio 14***************************
-const infoRouter = require("./routes/infoRouter.js");
-const random = require("./routes/random.js");
+// //desafio 14***************************
+// const infoRouter = require("./routes/infoRouter.js");
+// const random = require("./routes/random.js");
 
-app.use("/api/products", routerProducts);
-app.use("/api/cart", routerCart);
-app.use("/api/cart/products", routerCartProducts);
-// app.use("/api/user", routerUser);
-app.use("/api/user", authRouter);
+// app.use("/api/products", routerProducts);
+// app.use("/api/cart", routerCart);
+// app.use("/api/cart/products", routerCartProducts);
+// // app.use("/api/user", routerUser);
+// app.use("/api/user", authRouter);
 app.use("/", homeRouter);
 
-//desafio 14***********************
-app.use("/info", infoRouter);
-app.use("/api/random", random);
+// //desafio 14***********************
+// app.use("/info", infoRouter);
+// app.use("/api/random", random);
 
 module.exports = app;
