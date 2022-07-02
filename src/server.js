@@ -6,10 +6,10 @@ dotenv.config();
 const compression = require("compression");
 app.use(compression());
 
-const session = require("express-session");
-const mongoStore = require("connect-mongo");
+// const session = require("express-session");
+// const mongoStore = require("connect-mongo");
 
-const passport = require("./utils/passport.util");
+// const passport = require("./utils/passport.util");
 // const LocalStrategy = require("passport-local").Strategy;
 
 //EJS
@@ -23,29 +23,29 @@ app.use(express.static("public"));
 
 /******************************SESSION***********************************/
 //al objeto de config de session le puedo dar un tiempo de expiracion a traves de cookies
-app.use(
-  session({
-    store: mongoStore.create({
-      mongoUrl:
-        "mongodb+srv://belen:chiste@clustercoder.cqdn9.mongodb.net/sesiones",
-      options: {
-        userNewUrlParser: true,
-        useUnifiedTopology: true,
-      },
-    }),
-    secret: process.env.SECRET,
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: Number(process.env.EXPIRE),
-    },
-    rolling: true,
-  })
-);
+// app.use(
+//   session({
+//     store: mongoStore.create({
+//       mongoUrl:
+//         "mongodb+srv://belen:chiste@clustercoder.cqdn9.mongodb.net/sesiones",
+//       options: {
+//         userNewUrlParser: true,
+//         useUnifiedTopology: true,
+//       },
+//     }),
+//     secret: process.env.SECRET,
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: {
+//       maxAge: Number(process.env.EXPIRE),
+//     },
+//     rolling: true,
+//   })
+// );
 
 /******************************PASSPORT***********************************/
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // // ----Config router PRODUCTOS, CARRIO, CARRITO+PRODUCTOS
 // const routerCart = require("./routes/cartRoutesMongoDB.js");
