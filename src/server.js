@@ -70,8 +70,8 @@ app.use(passport.session());
 // app.use("/info", infoRouter);
 // app.use("/api/random", random);
 
-app.get("/", (req, res) => {
-  res.render("home-login");
-});
+// app.get("/", (req, res) => {
+//   res.render("home-login");
+// });
 
 module.exports = app;
